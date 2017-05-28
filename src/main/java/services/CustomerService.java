@@ -20,9 +20,8 @@ public class CustomerService {
         System.out.println("Customer name : " + this.name);
     }
 
-    public String printURL() {
+    public void printURL() {
         System.out.println("Customer website : " + this.url);
-        return url;
     }
 
     public void printThrowException() {

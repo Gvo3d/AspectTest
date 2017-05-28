@@ -8,21 +8,18 @@ import java.util.Arrays;
 public class AroundMethod implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
-        if (methodInvocation.getMethod().getName().equals("printURL")) {
             System.out.println("Method name : "
                     + methodInvocation.getMethod().getName());
             System.out.println("Method arguments : "
                     + Arrays.toString(methodInvocation.getArguments()));
             // до метода
             System.out.println("AroundMethod : Вместо BeforeMethod!");
-        }
+
             try {
                 // выполняем оригинальный метод
                 Object result = methodInvocation.proceed();
                 // после метода
-                if (methodInvocation.getMethod().getName().equals("printURL")) {
                     System.out.println("AroundMethod : Вместо AfterMethod!");
-                }
                 return result;
             } catch (IllegalArgumentException e) {
                 // если был выброс исключения
